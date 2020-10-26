@@ -13,7 +13,15 @@
 
     <main class="container-fluid">
         <div class="row">
-            <div id="to-do-list" class="col-6">to-do-list</div>
+            <div id="" class="col-2 bg-dark m-4 pt-3 text-white">
+                <form onsubmit="app.todoController.addTodo(event, '${this.id}')">
+                    <div class="form-group">
+                        <input type="text" name="description" class="form-control" placeholder="Enter Task Here">
+                        <button type="submit" name="" id="" class="btn btn-primary btn-block my-1">Add</button>
+                        <div id="to-do-list" class=" row justify-content-center"></div>
+                    </div>
+                </form>
+            </div>
             <div id="temperature" class="col-6 text-right">temperature</div>
         </div>
         <div class="row justify-content-center align-items-center quote-height">
