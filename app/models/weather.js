@@ -14,6 +14,7 @@ export default class Weather {
 
   get Template() {
     let cel = (this.kelvin - 273.15)
+    // @ts-ignore
     let far = parseInt(cel * 9 / 5 + 32)
     return /*html*/`
 <div class="mr-2 mt-2">
