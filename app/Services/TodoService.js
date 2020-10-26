@@ -8,10 +8,8 @@ let url = 'briston/todos/'
 
 class TodoService {
   async getTodos() {
-    console.log("Getting the Todo List");
     let res = await api.get(url);
     ProxyState.todos = res.data.data.map(rawToDo => new Todo(rawToDo))
-    console.log(res);
 
     //TODO Handle this response from the server
   }
@@ -20,6 +18,7 @@ class TodoService {
     let res = await api.post(url, todo);
     ProxyState.todos = [...ProxyState.todos, new Todo(res.data.data)]
     this.getTodos()
+    console.log(ProxyState.todos)
     //TODO Handle this response from the server
   }
 
@@ -36,9 +35,10 @@ class TodoService {
   async removeTodo(todoId) {
     let res = await api.delete(url + todoId)
     console.log(ProxyState.todos);
-    console.log(res);
     // ProxyState.todos = res.data.data
     this.getTodos()
+
+    // ProxyState.todos = res.data.data
     //TODO Work through this one on your own
     //		what is the request type
     //		once the response comes back, how do you update the state
